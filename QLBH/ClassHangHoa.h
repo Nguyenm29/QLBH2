@@ -24,3 +24,4 @@ public: /// Update 22-11-2020 -- github
 	virtual void NhapMatHang(); // Phương thức nhập một mặt hàng
 };
 
+ 

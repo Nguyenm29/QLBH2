@@ -271,6 +271,11 @@ void ClassMenu::DieuKhien()
 		}
 		else if (LC == 6)
 		{
+		string MaHHIn;
+		cin.ignore();
+		cout << "\n Nhap ma hang hoa muon xoa: ";
+		getline(cin, MaHHIn);
+		this->Xoa(MaHHIn);
 			// Truyền file vào vector sau đó xóa một đối tượng trong vector rồi lại ghi vào file.
 		}
 		else if (LC == 7)
@@ -380,10 +385,11 @@ void ClassMenu::TimKiem(string MaHHIn)
 	this->DocFilePhuKien();
 	// Đọc các file vào vector sau đó tìm kiếm trong vector
 	cout << "\n KET QUA: ";
-	for (size_t i = 0; DSHH.size(); ++i)
+	for (size_t i = 0; i < DSHH.size() - 1; ++i)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
 			DSHH[i]->HienThi();
+		system("pause");
 	}
 	DSHH.clear();
 }
@@ -396,11 +402,12 @@ void ClassMenu::TinhThue(string MaHHIn)
 	this->DocFilePhuKien();
 	// Đọc các file vào vector sau đó tìm kiếm trong vector
 	cout << "\n Thue cua mat hang la: ";
-	for (size_t i = 0; DSHH.size(); ++i)
+	for (size_t i = 0; i<DSHH.size()-1; ++i)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
 		{
 			cout << "\n Thue cua mat hang la: " << DSHH[i]->TinhThue();
+			system("pause");
 		}
 	}
 	DSHH.clear();
@@ -413,7 +420,7 @@ void ClassMenu::Xoa(string MaHHIn)
 	this->DocFileDongHo();
 	this->DocFileLapTop();
 	this->DocFilePhuKien();
-	for (size_t i = 0; i < DSHH.size(); ++i)
+	for (size_t i = 0; i < DSHH.size() - 1 ; ++i)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
 			ViTriXoa = i;
@@ -427,7 +434,14 @@ void ClassMenu::Xoa(string MaHHIn)
 	{
 		DSHH.erase (DSHH.begin() + ViTriXoa); // Xoa phan tu trong vector
 		// ghi vector vao trong file
-
+		fileout.open("DIENTHOAI.TXT", ios_base::trunc);
+		for (size_t i = 0; i < DSHH.size() - 1; ++i)
+		{
+			DSHH[i]->GhiMHVaoFile(fileout);
+		}
+		fileout.close();
+		cout << "\n Xoa thanh cong";
+		system("pause");
 	}
 }
 

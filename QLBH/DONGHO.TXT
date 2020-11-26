@@ -1,1 +1,1 @@
-mh01,dong ho thoi trang,hang sx,nhua,tron,2020 455 45
+1,1,1,1,1,1 1 1

@@ -5,6 +5,8 @@
 #include"ClassPhuKien.h"
 #include"ClassDienThoai.h"
 #include"ClassLapTop.h"
+#include<string.h>
+#include<stdio.h>
 class ClassMenu
 {
 private:
@@ -19,9 +21,9 @@ public:
 	void ThemMenu(ClassHangHoa *HH);
 	void DocFileDongHo();
 	void DocFilePhuKien();
-	void XuatFieRaMH();
 	void DocFileDienThoai();
 	void DocFileLapTop();
+	void XuatFieRaMH();
 	void TimKiem(string MaHHIn); // Tim kiem theo ma hang hoa
 	void TinhThue(string MaHHIn);
 	void Xoa(string MaHHIn);

@@ -7,7 +7,7 @@ protected:
 	float Pin;
 	float Camera;
 	float Ram;
-	string HDH; // He dieu hanh
+	string HDH; // Hệ điều hành
 	string Chip; // Chip 
 public:
 	ClassTBDienTu();
