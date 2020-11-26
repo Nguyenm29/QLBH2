@@ -5,3 +5,5 @@ int main()
 	a->DieuKhien();
 	return 0;
 }
+
+// update 26 th 11
