@@ -27,7 +27,7 @@ ClassTBDienTu::~ClassTBDienTu()
 
 double ClassTBDienTu::TinhThue()
 {
-	return Gia * 0.5 + Gia * 0.1; // 0.5 la thue GTGT 0.1 la thue nhap khau
+	return Gia * 0.05 + Gia * 0.1; // 0.5 la thue GTGT 0.1 la thue nhap khau
 }
 
 void ClassTBDienTu::HienThi()

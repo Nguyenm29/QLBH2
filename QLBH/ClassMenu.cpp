@@ -23,6 +23,7 @@ void ClassMenu::DocFilePhuKien() // doc gile dong do cho len vector sau do hien 
 	string MauSacIn;
 	double GiaIn;
 	int NamSXIn;
+	string temp;
 	filein.open("PHUKIEN.TXT", ios_base::in);
 	if (filein.fail() == true)
 	{
@@ -37,6 +38,7 @@ void ClassMenu::DocFilePhuKien() // doc gile dong do cho len vector sau do hien 
 		getline(filein, MauSacIn, ',');
 		filein >> NamSXIn;
 		filein >> GiaIn;
+		getline(filein, temp);
 		ClassPhuKien* PhuKien = new ClassPhuKien;
 		PhuKien->SetInfo(MaHHIn, TenHHIn, HangSXIn, GiaIn, NamSXIn, MauSacIn, ChatLieuIn);
 		DSHH.push_back(PhuKien); 
@@ -95,7 +97,8 @@ void ClassMenu::DieuKhien()
 		cout << "\n\t\t 5. Tinh thue. ";
 		cout << "\n\t\t 6. Xoa mot mat hang. ";
 		cout << "\n\t\t 7. Sua thong tin mot mat hang. ";
-		cout << "\n\t\t 8. An 0 de thoat. ";
+		cout << "\n\t\t 8. Dem so mat hang. ";
+		cout << "\n\t\t 9. An 0 de thoat. ";
 		cout << "\n\t\t Nhap lua chon. ";
 		cin >> LC;
 		if (LC == 1)
@@ -186,6 +189,7 @@ void ClassMenu::DieuKhien()
 				cout << "\n\t\t=======QUAN LY THIET BI DIEN TU===========";
 				cout << "\n\t\t 1. Quan ly dien thoai: ";
 				cout << "\n\t\t 2. Quan ly lap top: ";
+				cout << "\n\t\t 3. An 0 de thoat: ";
 				cout << "\n Nhap lua chon: "; cin >> LCTBDT;
 				if (LCTBDT == 1)
 				{
@@ -223,7 +227,7 @@ void ClassMenu::DieuKhien()
 				}
 				else if (LCTBDT == 2)
 				{
-					while(true)
+					while (true)
 					{
 						int LCMT;
 						system("cls");
@@ -254,6 +258,7 @@ void ClassMenu::DieuKhien()
 						else cout << "\n lua chon khong hop le: ";
 					}
 				}
+				else if (LCTBDT == 0) break;
 			}
 		}
 		else if (LC == 4)
@@ -283,6 +288,10 @@ void ClassMenu::DieuKhien()
 		else if (LC == 7)
 		{
 
+		}
+		else if (LC == 8)
+		{
+		this->DemSoHH();
 		}
 		else if (LC == 0) break;
 		else
@@ -403,7 +412,6 @@ void ClassMenu::TinhThue(string MaHHIn)
 	this->DocFileLapTop();
 	this->DocFilePhuKien();
 	// Đọc các file vào vector sau đó tìm kiếm trong vector
-	cout << "\n Thue cua mat hang la: ";
 	for (size_t i = 0; i<DSHH.size()-1; ++i)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
@@ -449,6 +457,10 @@ void ClassMenu::Xoa(string MaHHIn)
 
 void ClassMenu::DemSoHH()
 {
+	this->DocFileDienThoai();
+	this->DocFileDongHo();
+	this->DocFileLapTop();
+	this->DocFilePhuKien();
 	int Dem = 0;
 	for (size_t i = 0; i < DSHH.size() - 1; ++i)
 	{
