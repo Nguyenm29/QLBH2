@@ -1,5 +1,6 @@
 ﻿
-/// Update 22-11-2020 -- github 
+// update 29 thang 11
+
 #pragma once
 #include<string>
 #include<iostream>

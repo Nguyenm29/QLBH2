@@ -57,6 +57,7 @@ void ClassMenu::DocFileDongHo()
 	string MatDongHoIn;
 	float ChieuDaiDayIn;
 	filein.open("DONGHO.TXT", ios_base::in);
+	string temp;
 	if (filein.fail() == true)
 	{
 		cout << "\n FILE KHONG TON TAI !!!";
@@ -71,6 +72,7 @@ void ClassMenu::DocFileDongHo()
 		filein >> NamSXIn;
 		filein >> GiaIn;
 		filein >> ChieuDaiDayIn;
+		getline(filein, temp);
 		ClassDongHo* DongHo = new ClassDongHo();
 		DongHo->SetInfo(MaHHIn, TenHHIn, HangSXIn, GiaIn, NamSXIn, ChatLieuDayDeoIn, MatDongHoIn, ChieuDaiDayIn);
 		DSHH.push_back(DongHo);
@@ -389,8 +391,8 @@ void ClassMenu::TimKiem(string MaHHIn)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
 			DSHH[i]->HienThi();
-		system("pause");
 	}
+	system("pause");
 	DSHH.clear();
 }
 
@@ -406,10 +408,10 @@ void ClassMenu::TinhThue(string MaHHIn)
 	{
 		if (DSHH[i]->GetMaHH() == MaHHIn)
 		{
-			cout << "\n Thue cua mat hang la: " << DSHH[i]->TinhThue();
-			system("pause");
+			cout << "\n Thue cua mat hang la: " << DSHH[i]->TinhThue() <<endl;
 		}
 	}
+	system("pause");
 	DSHH.clear();
 }
 
